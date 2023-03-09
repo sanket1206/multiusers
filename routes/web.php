@@ -21,8 +21,15 @@ Route::get('/', function () {
 
 
 route::get('/redirects',[HomeController::class,"index"]);
+     
+route::get('/category',[App\Http\Controllers\CategoryController::class,'index']);
+
+route::get('/add-category',[App\Http\Controllers\CategoryController::class,'create']);
+route::Post('/add-category',[App\Http\Controllers\CategoryController::class,'store']);
 
 route::post('/addseller',[HomeController::class,"addseller"]);
+
+
 
 Route::middleware([
     'auth:sanctum',
@@ -32,4 +39,6 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    
 });

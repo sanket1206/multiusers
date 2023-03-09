@@ -3,24 +3,24 @@
     <h1> admin Dashboard </h1>
 </div>
 <div>
-    <foam action="{{url("/addseller")}}" method="POST">
+    <form action="{{url("/addseller")}}" method="POST">
         @csrf
         <div>
-            <lable>Name</lable>
+            <label>Name</label>
             <input type = "text" name="name" required="">
         </div>
         <div>
-            <lable>Email</lable>
+            <label>Email</label>
             <input type = "email" name="email" required="">
         </div>
         <div>
-            <lable>password</lable>
+            <label>password</label>
             <input type = "password" name="password" required="">
         </div>
         <div>
             <input type="submit">
         </div>
-    </foam>
+    </form>
 </div>
    
 </x-app-layout>
