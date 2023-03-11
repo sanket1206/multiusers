@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
 class CategoryformRequest extends FormRequest
 {
     /**
@@ -23,7 +24,51 @@ class CategoryformRequest extends FormRequest
      */
     public function rules()
     {
-        
+        $rules = [
+            'name'=>[
+                'required',
+                'string',
+                'max=200'
+            ],
+            'slug'=>[
+                'required',
+                'string',
+                'max=200'
+            ],
+            'description'=>[
+                'required'
+            ],
+            'image'=>[
+                
+                'image'
+                
+            ],
+            'meta_title'=>[
+                'required',
+                'string',
+                'max=200'
+            ],
+            'meta_descrition'=>[
+                'required',
+                'string'
+                
+            ],
+            'meta_keyword'=>[
+                'required',
+                'string'
+                
+            ],
+            'navbar_status'=>[
+                'nullable',
+                'boolean'
+                
+            ],
+            'status'=>[
+                'nullable',
+                'boolean'
+                
+            ]
+        ];
 
         return $rules;
             

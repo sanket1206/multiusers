@@ -1,25 +1,32 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+<x-slot name="header">
+        <h1 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Add Category') }}
-        </h2>
+        </h1>
     </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <x-welcome />
-            </div>
-        </div>
-    </div>
 
     <div class="card mt-4">
         <div class="card-number">
-            <h4 class="">Add Category</h4>
+            <h1 class="">Add Category</h1>
 
         </div>
+        <style>
+            .class-body{
+                padding: 20px;
+                margin: 20px;
+                width:100%;
+                border:1px solid;
+                background-color:grey;
+                font-color:red;
+            }
+            .mb-3{
+                margin:20px;
+
+            }
+           
+        </style>
         <div class="class-body">
-            <form action="{{('add-category')}}" method="Post">
+           
+            <form  action="{{('add-category')}}" method="Post" enctype="multipart/form-data">
                 @csrf
 
                 <div class="mb-3">
@@ -48,32 +55,25 @@
                 </div>
                 <div class="mb-3">
                     <label>Meta description</label>
-                    <textarea name=" meta_description" rows="3" class="form control"></textarea>            
+                    <textarea name=" meta_description"  class="form control"></textarea>            
                 </div>
                 <div class="mb-3">
                     <label>Meta Keywords</label>
                     <textarea name="Meta_keywords" rows="3" class="form control"></textarea>            
                 </div>
-                <h6>Status Mode</h6>
-                <div class="row">
-                    <div class="col-md-3 mb-3">
-                        <lable>Navbar Status</label>
-                        <inut type="checkbox" name="navbar_status" />
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <lable>Status</label>
-                        <inut type="checkbox" name="status" />
-                    </div>
-                    <div class="col-md-6">
+                <h4>Status Mode</h4>
+                <div class=" mb-3">                       
+                     <label>Navbar Status</label>
+                        <input type="checkbox" name="navbar_status" class="form control" />
+                </div>
+                <div class=" mb-3">                       
+                     <label>Status</label>
+                        <input type="checkbox" name="status" class="form control" />
+                </div>
+                <div class="col-md-6">
                         <button type="submit" class="btn btn-primary">Save Category</button>
                     </div>
-                
-                    
-                    
-            
-        
-
-            </form>
+             </form>
 
 
 
@@ -82,4 +82,4 @@
 
         </div>
     </div>
-</x-app-layout>
+

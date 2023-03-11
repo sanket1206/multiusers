@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\Admin\CategoryFormRequest;
+
 
 class CategoryController extends Controller
 {
@@ -25,8 +27,8 @@ class CategoryController extends Controller
         $category->slug = $data['slug'];
         $category->description = $data['description'];
 
-        if($data->hasfile('image')){
-            $file = $data ->file('image');
+        if($request->hasfile('image')){
+            $file = $request ->file('image');
             $filename=time().','. $file->getClientOriginalExtension();
             $file->move('uploads/category/',$filename);
             $category->image=$filename;
@@ -36,8 +38,8 @@ class CategoryController extends Controller
         $category->meta_description = $data['meta_description'];
         $category->meta_keyword = $data['meta_keyword'];
 
-        $category->navbar_status = $data['navbar_status'];
-        $category->status = $data['status'];
+        $category->navbar_status = $request['navbar_status'];
+        $category->status = $request['status'];
         $category->created_by = Auth::user()->id;
         $category->save();
 
